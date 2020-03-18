@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const authorizationController = require('../controllers/authorizationController');
+const messageController = require('../controllers/messageController');
 
 /** Landing Page Routes **/
 router.get('/', authorizationController.loginPage);
@@ -34,5 +35,8 @@ router.get('/', authorizationController.loginPage);
 // router.get('/conversationPage', redirectLogin, messageController.conversationPage);
 // router.get('/messages/get', redirectLogin, messageController.getMessages);
 // router.post('/message/send', messageController.sendMessage);
+router.get('/messagePage', messageController.showMessagePage);
+router.post('/createConversation', messageController.createConversation);
+
 
 module.exports = router;
